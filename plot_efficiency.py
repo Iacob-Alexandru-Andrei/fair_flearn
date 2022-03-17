@@ -25,7 +25,7 @@ def parse_log(file_name):
 
     for line in open(file_name, 'r'):
 
-        search_test_accu = re.search( r'At round (.*) testing accuracy: (.*)', line, re.M|re.I)
+        search_test_accu = re.search( r'At round (.*) validation accuracy: (.*)', line, re.M|re.I)
         if search_test_accu:
             rounds.append(int(search_test_accu.group(1)))
             accu.append(float(search_test_accu.group(2)))
@@ -42,17 +42,17 @@ def parse_log(file_name):
 
 
 accuracies = [ 
-["./log_synthetic/gini_ffedavg_run1_q0",
-"./log_synthetic/harmonic_ffedavg_run1_q0",
-"./log_synthetic/ffedavg_run1_q0",
-"./log_synthetic/ffedavg_run1_q1"
+["./log_vehicle/gini_ffedavg_run1_q0",
+"./log_vehicle/harmonic_ffedavg_run1_q0",
+"./log_vehicle/qffedavg_run1_q0",
+"./log_vehicle/qffedavg_run1_q5"
 ],
 
 [
-"./log_synthetic/geom_z_085_ffedavg_run1_q0",
-"./log_synthetic/geom_z_050_fffedavg_run1_q0v",
-"./log_synthetic/ffedavg_run1_q0",
-"./log_synthetic/ffedavg_run1_q1"
+"./log_vehicle/geom_z_085_ffedavg_run1_q0",
+"./log_vehicle/geom_z_050_ffedavg_run1_q0",
+"./log_vehicle/qffedavg_run1_q0",
+"./log_vehicle/qffedavg_run1_q5"
 ]
 ]
 
@@ -84,11 +84,11 @@ for i, pair in enumerate(acc_labels):
 
         ax.legend(loc='best', frameon=False)
    
+        ax.set_xlim(0, 20)
 
-        ax.set_xlim(0, 10)
         plt.tight_layout()
 
 
 
-plt.savefig("efficiency_synth.pdf")
+plt.savefig("efficiency_vehicle.pdf")
 
