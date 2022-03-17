@@ -41,33 +41,54 @@ def parse_log(file_name):
     return rounds, loss, accu, accu_train
 
 
-
 accuracies = [ 
-"./log_vehicle/ffedavg_run1_q5",
-"./log_vehicle/ffedsgd_run1_q5",
+["./log_synthetic/gini_ffedavg_run1_q0",
+"./log_synthetic/harmonic_ffedavg_run1_q0",
+"./log_synthetic/ffedavg_run1_q0",
+"./log_synthetic/ffedavg_run1_q1"
+],
+
+[
+"./log_synthetic/geom_z_085_ffedavg_run1_q0",
+"./log_synthetic/geom_z_050_fffedavg_run1_q0v",
+"./log_synthetic/ffedavg_run1_q0",
+"./log_synthetic/ffedavg_run1_q1"
+]
 ]
 
-dataset = ["Vehicle"]
+labels = [ 
+["gini","harmonic","q=0", "q=1"],
+["Geo = 0.85","Geo = 0.5","q=0", "q=1"]
+]
+
+acc_labels = list(zip(accuracies, labels))
 
 
-f = plt.figure(figsize=[5.5, 4.5])
+dataset = ["Synthetic"]
 
+
+plt.rcParams['figure.figsize'] = [11, 4.5]
 sampling_rate=[1]
 
 
-rounds0, losses0, test_accuracies0, train_accuracies0 = parse_log(accuracies[0])
-rounds1, losses1, test_accuracies1, train_accuracies1 = parse_log(accuracies[1])
+fig,axes = plt.subplots(nrows=1, ncols=len(acc_labels))
+for i, pair in enumerate(acc_labels):
+    acc_pair = pair[0]
+    label_pair = pair[1]
+    ax = axes[i]
+    for acc, label in zip(acc_pair, label_pair):
+        rounds0, losses0, test_accuracies0, train_accuracies0 = parse_log(acc)
+        ax.errorbar(np.asarray(rounds0)[::sampling_rate[0]], np.asarray(test_accuracies0)[::sampling_rate[0]], linewidth=3.0, label=label)
+        ax.set_ylabel('Testing accuracy', fontsize=22)
+        ax.set_xlabel('# Rounds', fontsize=22)
 
-plt.plot(np.asarray(rounds0)[::sampling_rate[0]], np.asarray(test_accuracies0)[::sampling_rate[0]], linewidth=3.0, label=r'q-FedAvg', color="#d62728")
-plt.plot(np.asarray(rounds1)[::sampling_rate[0]], np.asarray(test_accuracies1)[::sampling_rate[0]],  '--', linewidth=3.0, label=r'q-FedSGD')
-    
-plt.ylabel('Testing accuracy', fontsize=22)
-plt.xlabel('# Rounds', fontsize=22)
+        ax.legend(loc='best', frameon=False)
+   
 
-plt.legend(loc='best', frameon=False)
-plt.title(dataset[0], fontsize=22, fontweight='bold')
+        ax.set_xlim(0, 10)
+        plt.tight_layout()
 
-plt.xlim(0, 10)
-plt.tight_layout()
 
-f.savefig("efficiency_qffedavg.pdf")
+
+plt.savefig("efficiency_synth.pdf")
+
