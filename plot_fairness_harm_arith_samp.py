@@ -8,9 +8,9 @@ from mpl_toolkits.axisartist.axislines import Subplot
 import seaborn as sns
 
 accuracies = [ 
-["./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"],
-["./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"],
-[  "./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv"],
+["./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv"],
+["./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv"],
+[  "./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"],
 [ "./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"]
 ]
 
@@ -110,20 +110,22 @@ for i, pair in enumerate(acc_labels):
     ax1.bar(bincenters, mean_y1, yerr=std_y1, width=width, color='#17becf',  alpha=0.4, label = lab1)
     ax1.bar(bincenters, mean_y2,yerr=std_y2, width=width, color='#d62728', alpha=0.5, label = lab2)
 
-    plt.xlabel(flag + " accuracy", fontsize=10)
-    plt.ylabel("# Clients", fontsize=10)
-    plt.title(dataset[0], fontsize=10, fontweight='bold')
+    ax1.set_xlabel(flag + " accuracy", fontsize=10)
+    ax1.set_ylabel("# Clients", fontsize=10)
+    # plt.title(dataset[0], fontsize=10, fontweight='bold')
 
-    plt.legend(frameon=False, loc=2)
+    ax1.legend(frameon=False, loc=2)
     ax2 = ax1.twinx()
     ax2.set_ylim(0, ax2_y[0])
 
     ax2.get_yaxis().set_visible(False)
     sns.kdeplot(mean_accu1, linestyle='--', ax=ax2, bw=bws[0], color="#17becf")
     sns.kdeplot(mean_accu2, ax=ax2, bw=bws[1], color="#d62728")
-    plt.xlim(0,1)
+    ax2.set_xlim(0,1)
     plt.tight_layout()
-    plt.ylim(0, 8)
-    plt.savefig("fairness_vehicle_non_uniform.pdf")
+    ax2.set_ylim(0, 8)
+
+
+plt.savefig("fairness_vehicle_non_uniform.pdf")
 
 
