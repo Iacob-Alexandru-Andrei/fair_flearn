@@ -8,18 +8,18 @@ from mpl_toolkits.axisartist.axislines import Subplot
 import seaborn as sns
 
 accuracies = [ 
-["./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv"],
-["./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv"],
-[  "./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"],
-[ "./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv"]
+["./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv"],
+["./log_vehicle/qffedavg_samp2_run1_q0_20_test.csv", "./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv"],
+[ "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv", "./log_vehicle/gini_ffedavg_samp2_run1_q0_20_test.csv"],
+[ "./log_vehicle/qffedavg_samp2_run1_q5_20_test.csv", "./log_vehicle/harmonic_ffedavg_samp2_run1_q0_20_test.csv"]
 ]
 
 flag = "Testing"
 dataset = ["Vehicle"]
-label_ = [  ["gini", "q=5"],
-["harmonic", "q=5"],
-["gini", "q=0"],
-["harmonic", "q=0"],
+label_ = [  ["q=0", "gini"],
+["q=0", "harmonic"],
+["q=5", "gini"],
+["q=5", "harmonic"],
 ]
 acc_labels = list(zip(accuracies, label_))
 
