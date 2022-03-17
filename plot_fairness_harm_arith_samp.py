@@ -121,9 +121,10 @@ for i, pair in enumerate(acc_labels):
     sns.kdeplot(mean_accu1, linestyle='--', ax=ax2, bw=bws[0], color="#17becf")
     sns.kdeplot(mean_accu2, ax=ax2, bw=bws[1], color="#d62728")
     ax2.set_xlim(0,1)
+    ax2.set_ylim(0, 10)
+    ax1.set_ylim(0, 10)
     plt.tight_layout()
-    ax2.set_ylim(0, 8)
-    ax1.set_ylim(0, 8)
+      
 
 
 plt.savefig("fairness_vehicle_non_uniform.pdf")
