@@ -1,0 +1,78 @@
+Arguments:
+	               batch_size : 64
+	        clients_per_round : 10
+	      data_partition_seed : 1
+	                  dataset : vehicle
+	               eval_every : 1
+	                 held_out : 0
+	            learning_rate : 0.01
+	     learning_rate_lambda : 0.01
+	             log_interval : 10
+	                    model : svm
+	             model_params : (2,)
+	               num_epochs : 1
+	            num_fine_tune : 0
+	               num_rounds : 20
+	                optimizer : harmonic_ffedavg
+	                   output : ./log_vehicle/harmonic_ffedavg_samp2_run1_q0
+	                        q : 0.0
+	                 sampling : 2
+	                     seed : 0
+	         static_step_size : 0
+	track_individual_accuracy : 0
+	                with_maml : 0
+Using fair fed avg to Train
+[2022-03-17 10:19:37.879 ip-172-31-28-224:9109 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None
+[2022-03-17 10:19:37.902 ip-172-31-28-224:9109 INFO profiler_config_parser.py:111] Unable to find config at /opt/ml/input/config/profilerconfig.json. Profiler is disabled.
+Parsing Inputs...
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              1
+-min_occurrence             0
+-step                       -1
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     float_ops
+-output                     stdout:
+
+==================Model Analysis Report======================
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+flops: Number of float operations. Note: Please read the implementation for the math behind it.
+
+Profile:
+node name | # float_ops
+_TFProfRoot (--/505 flops)
+  Square (100/100 flops)
+  gradients/AddN (100/100 flops)
+  gradients/Square_grad/Mul (100/100 flops)
+  gradients/Square_grad/Mul_1 (100/100 flops)
+  Sum (99/99 flops)
+  gradients/mul_2_grad/Mul (1/1 flops)
+  gradients/mul_2_grad/Mul_1 (1/1 flops)
+  gradients/mul_grad/Mul (1/1 flops)
+  gradients/mul_grad/Mul_1 (1/1 flops)
+  mul (1/1 flops)
+  mul_2 (1/1 flops)
+
+======================End of Report==========================
+23 Clients in Total
+Training with 10 workers ---
+At round 0 testing accuracy: 0.0
+At round 0 training accuracy: 0.0
+At round 0 validating accuracy: 0.0

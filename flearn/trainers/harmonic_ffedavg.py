@@ -45,19 +45,21 @@ class Server(BaseFedarated):
             lossess = []
             samples = []
             weights = []
+   
             for c in selected_clients:                
                 # communicate the latest model
                 c.set_params(self.latest_model)
                 sample = c.get_sample_cnt()
-                weights_before = c.get_params()
+            
                 loss = c.get_loss() # compute loss on the whole training data, with respect to the starting point (the global model)
                 soln, stats = c.solve_inner(num_epochs=self.num_epochs, batch_size=self.batch_size)
-                new_weights = soln[1]
+                new_weights = soln[1]*self.learning_rate
                 weights.append(new_weights)
                 lossess.append(loss)
                 samples.append(sample)
             # aggregate using the generated weights
-            self.latest_model = self.aggregate_ps(weights, samples,lossess)
+            new_weights = self.aggregate_ps(weights, samples,lossess)
+            self.latest_model =  new_weights
 
                     
 
