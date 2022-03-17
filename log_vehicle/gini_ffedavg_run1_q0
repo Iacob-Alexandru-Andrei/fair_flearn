@@ -1,0 +1,138 @@
+Arguments:
+	               batch_size : 64
+	        clients_per_round : 10
+	      data_partition_seed : 1
+	                  dataset : vehicle
+	               eval_every : 1
+	                 held_out : 0
+	            learning_rate : 0.01
+	     learning_rate_lambda : 0.01
+	             log_interval : 10
+	                    model : svm
+	             model_params : (2,)
+	               num_epochs : 1
+	            num_fine_tune : 0
+	               num_rounds : 20
+	                optimizer : gini_ffedavg
+	                   output : ./log_vehicle/gini_ffedavg_samp2_run1_q0
+	                        q : 0.0
+	                 sampling : 2
+	                     seed : 0
+	         static_step_size : 0
+	track_individual_accuracy : 0
+	                with_maml : 0
+Using fair fed avg to Train
+[2022-03-17 02:05:04.314 ip-172-31-28-224:18947 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None
+[2022-03-17 02:05:04.337 ip-172-31-28-224:18947 INFO profiler_config_parser.py:111] Unable to find config at /opt/ml/input/config/profilerconfig.json. Profiler is disabled.
+Parsing Inputs...
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              1
+-min_occurrence             0
+-step                       -1
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     float_ops
+-output                     stdout:
+
+==================Model Analysis Report======================
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+flops: Number of float operations. Note: Please read the implementation for the math behind it.
+
+Profile:
+node name | # float_ops
+_TFProfRoot (--/505 flops)
+  Square (100/100 flops)
+  gradients/AddN (100/100 flops)
+  gradients/Square_grad/Mul (100/100 flops)
+  gradients/Square_grad/Mul_1 (100/100 flops)
+  Sum (99/99 flops)
+  gradients/mul_2_grad/Mul (1/1 flops)
+  gradients/mul_2_grad/Mul_1 (1/1 flops)
+  gradients/mul_grad/Mul (1/1 flops)
+  gradients/mul_grad/Mul_1 (1/1 flops)
+  mul (1/1 flops)
+  mul_2 (1/1 flops)
+
+======================End of Report==========================
+23 Clients in Total
+Training with 10 workers ---
+At round 0 testing accuracy: 0.0
+At round 0 training accuracy: 0.0
+At round 0 validating accuracy: 0.0
+At round 1 testing accuracy: 0.8625884501255421
+At round 1 training accuracy: 0.8693201327686849
+At round 1 validating accuracy: 0.8662391204764086
+At round 2 testing accuracy: 0.8660123259529787
+At round 2 training accuracy: 0.8725248941284194
+At round 2 validating accuracy: 0.8726523133302795
+At round 3 testing accuracy: 0.8687514266149281
+At round 3 training accuracy: 0.8757582694288657
+At round 3 validating accuracy: 0.8731103985341273
+At round 4 testing accuracy: 0.8676101346724492
+At round 4 training accuracy: 0.8761874785395445
+At round 4 validating accuracy: 0.874713696747595
+At round 5 testing accuracy: 0.8712622688883817
+At round 5 training accuracy: 0.8769600549387662
+At round 5 validating accuracy: 0.8770041227668346
+At round 6 testing accuracy: 0.8685231682264323
+At round 6 training accuracy: 0.8732402426462172
+At round 6 validating accuracy: 0.8703618873110398
+At round 7 testing accuracy: 0.8692079433919196
+At round 7 training accuracy: 0.8755865857845943
+At round 7 validating accuracy: 0.8742556115437471
+At round 8 testing accuracy: 0.8705774937228943
+At round 8 training accuracy: 0.8761588645988325
+At round 8 validating accuracy: 0.8740265689418232
+At round 9 testing accuracy: 0.8705774937228943
+At round 9 training accuracy: 0.8768742131166304
+At round 9 validating accuracy: 0.8731103985341273
+At round 10 testing accuracy: 0.8689796850034239
+At round 10 training accuracy: 0.8754149021403228
+At round 10 validating accuracy: 0.8708199725148877
+At round 11 testing accuracy: 0.8605341246290801
+At round 11 training accuracy: 0.869634886116516
+At round 11 validating accuracy: 0.869674759505268
+At round 12 testing accuracy: 0.8721753024423647
+At round 12 training accuracy: 0.87701728282019
+At round 12 validating accuracy: 0.874942739349519
+At round 13 testing accuracy: 0.8673818762839535
+At round 13 training accuracy: 0.8713231086185189
+At round 13 validating accuracy: 0.86921667430142
+At round 14 testing accuracy: 0.8641862588450125
+At round 14 training accuracy: 0.8668307199267483
+At round 14 validating accuracy: 0.8664681630783325
+At round 15 testing accuracy: 0.8696644601689112
+At round 15 training accuracy: 0.8753862881996108
+At round 15 validating accuracy: 0.8767750801649107
+At round 16 testing accuracy: 0.8630449669025336
+At round 16 training accuracy: 0.8739269772233031
+At round 16 validating accuracy: 0.8719651855245075
+At round 17 testing accuracy: 0.8703492353343986
+At round 17 training accuracy: 0.875357674258899
+At round 17 validating accuracy: 0.874713696747595
+At round 18 testing accuracy: 0.8589363159096097
+At round 18 training accuracy: 0.870607760100721
+At round 18 validating accuracy: 0.869674759505268
+At round 19 testing accuracy: 0.865784067564483
+At round 19 training accuracy: 0.8724104383655717
+At round 19 validating accuracy: 0.8728813559322034
+At round 20 testing accuracy: 0.869892718557407
+At round 20 training accuracy: 0.8762733203616803
+At round 20 validating accuracy: 0.8770041227668346

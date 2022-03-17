@@ -1,0 +1,376 @@
+Arguments:
+	               batch_size : 32
+	        clients_per_round : 10
+	      data_partition_seed : 1
+	                  dataset : fmnist
+	               eval_every : 1
+	                 held_out : 0
+	            learning_rate : 0.1
+	     learning_rate_lambda : 0.01
+	             log_interval : 10
+	                    model : lr
+	             model_params : (3,)
+	               num_epochs : 1
+	            num_fine_tune : 0
+	               num_rounds : 100
+	                optimizer : qffedavg
+	                   output : ./log_fmnist/qffedavg_samp2_run1_q15
+	                        q : 15.0
+	                 sampling : 2
+	                     seed : 0
+	         static_step_size : 0
+	track_individual_accuracy : 0
+	                with_maml : 0
+Using fair fed avg to Train
+<class 'flearn.models.fmnist.lr.Model'>
+[2022-03-17 01:00:25.635 ip-172-31-28-224:13804 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None
+[2022-03-17 01:00:25.658 ip-172-31-28-224:13804 INFO profiler_config_parser.py:111] Unable to find config at /opt/ml/input/config/profilerconfig.json. Profiler is disabled.
+Parsing Inputs...
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              1
+-min_occurrence             0
+-step                       -1
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     float_ops
+-output                     stdout:
+
+==================Model Analysis Report======================
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+flops: Number of float operations. Note: Please read the implementation for the math behind it.
+
+Profile:
+node name | # float_ops
+_TFProfRoot (--/11.76k flops)
+  dense/kernel/Regularizer/l2_regularizer (1/7.06k flops)
+    dense/kernel/Regularizer/l2_regularizer/L2Loss (7.05k/7.05k flops)
+  dense/kernel/Initializer/random_uniform (2.35k/4.71k flops)
+    dense/kernel/Initializer/random_uniform/mul (2.35k/2.35k flops)
+    dense/kernel/Initializer/random_uniform/sub (1/1 flops)
+  gradients/sparse_softmax_cross_entropy_loss/value_grad/Neg (1/1 flops)
+  gradients/sparse_softmax_cross_entropy_loss/value_grad/mul (1/1 flops)
+  sparse_softmax_cross_entropy_loss/num_present/Equal (1/1 flops)
+
+======================End of Report==========================
+3 Clients in Total
+Training with 10 workers ---
+At round 0 testing accuracy: 0.28523809523809524
+At round 0 training accuracy: 0.28148809523809526
+At round 0 validating accuracy: 0.29095238095238096
+At round 1 testing accuracy: 0.2823809523809524
+At round 1 training accuracy: 0.28160714285714283
+At round 1 validating accuracy: 0.29095238095238096
+At round 2 testing accuracy: 0.27904761904761904
+At round 2 training accuracy: 0.28077380952380954
+At round 2 validating accuracy: 0.2857142857142857
+At round 3 testing accuracy: 0.2795238095238095
+At round 3 training accuracy: 0.2808333333333333
+At round 3 validating accuracy: 0.28523809523809524
+At round 4 testing accuracy: 0.28285714285714286
+At round 4 training accuracy: 0.2801190476190476
+At round 4 validating accuracy: 0.28809523809523807
+At round 5 testing accuracy: 0.2833333333333333
+At round 5 training accuracy: 0.2800595238095238
+At round 5 validating accuracy: 0.29
+At round 6 testing accuracy: 0.2823809523809524
+At round 6 training accuracy: 0.2823809523809524
+At round 6 validating accuracy: 0.2923809523809524
+At round 7 testing accuracy: 0.2833333333333333
+At round 7 training accuracy: 0.2851190476190476
+At round 7 validating accuracy: 0.2947619047619048
+At round 8 testing accuracy: 0.2885714285714286
+At round 8 training accuracy: 0.2876190476190476
+At round 8 validating accuracy: 0.29428571428571426
+At round 9 testing accuracy: 0.2914285714285714
+At round 9 training accuracy: 0.29017857142857145
+At round 9 validating accuracy: 0.29619047619047617
+At round 10 testing accuracy: 0.29333333333333333
+At round 10 training accuracy: 0.2938095238095238
+At round 10 validating accuracy: 0.2985714285714286
+At round 11 testing accuracy: 0.29428571428571426
+At round 11 training accuracy: 0.2967261904761905
+At round 11 validating accuracy: 0.3
+At round 12 testing accuracy: 0.2980952380952381
+At round 12 training accuracy: 0.29910714285714285
+At round 12 validating accuracy: 0.30523809523809525
+At round 13 testing accuracy: 0.30095238095238097
+At round 13 training accuracy: 0.30297619047619045
+At round 13 validating accuracy: 0.31047619047619046
+At round 14 testing accuracy: 0.3047619047619048
+At round 14 training accuracy: 0.305952380952381
+At round 14 validating accuracy: 0.31666666666666665
+At round 15 testing accuracy: 0.30857142857142855
+At round 15 training accuracy: 0.30910714285714286
+At round 15 validating accuracy: 0.319047619047619
+At round 16 testing accuracy: 0.310952380952381
+At round 16 training accuracy: 0.3129166666666667
+At round 16 validating accuracy: 0.3219047619047619
+At round 17 testing accuracy: 0.3138095238095238
+At round 17 training accuracy: 0.3163690476190476
+At round 17 validating accuracy: 0.3242857142857143
+At round 18 testing accuracy: 0.32047619047619047
+At round 18 training accuracy: 0.32
+At round 18 validating accuracy: 0.3295238095238095
+At round 19 testing accuracy: 0.32285714285714284
+At round 19 training accuracy: 0.32321428571428573
+At round 19 validating accuracy: 0.33285714285714285
+At round 20 testing accuracy: 0.3261904761904762
+At round 20 training accuracy: 0.3266071428571429
+At round 20 validating accuracy: 0.33476190476190476
+At round 21 testing accuracy: 0.32761904761904764
+At round 21 training accuracy: 0.3306547619047619
+At round 21 validating accuracy: 0.3404761904761905
+At round 22 testing accuracy: 0.33095238095238094
+At round 22 training accuracy: 0.33339285714285716
+At round 22 validating accuracy: 0.34285714285714286
+At round 23 testing accuracy: 0.3333333333333333
+At round 23 training accuracy: 0.3364285714285714
+At round 23 validating accuracy: 0.3461904761904762
+At round 24 testing accuracy: 0.33904761904761904
+At round 24 training accuracy: 0.3394642857142857
+At round 24 validating accuracy: 0.35095238095238096
+At round 25 testing accuracy: 0.3423809523809524
+At round 25 training accuracy: 0.34208333333333335
+At round 25 validating accuracy: 0.35333333333333333
+At round 26 testing accuracy: 0.3442857142857143
+At round 26 training accuracy: 0.3449404761904762
+At round 26 validating accuracy: 0.35714285714285715
+At round 27 testing accuracy: 0.35
+At round 27 training accuracy: 0.34773809523809524
+At round 27 validating accuracy: 0.35904761904761906
+At round 28 testing accuracy: 0.3504761904761905
+At round 28 training accuracy: 0.34958333333333336
+At round 28 validating accuracy: 0.3619047619047619
+At round 29 testing accuracy: 0.3538095238095238
+At round 29 training accuracy: 0.35196428571428573
+At round 29 validating accuracy: 0.36523809523809525
+At round 30 testing accuracy: 0.3566666666666667
+At round 30 training accuracy: 0.3542261904761905
+At round 30 validating accuracy: 0.3647619047619048
+At round 31 testing accuracy: 0.3585714285714286
+At round 31 training accuracy: 0.3570238095238095
+At round 31 validating accuracy: 0.3680952380952381
+At round 32 testing accuracy: 0.3619047619047619
+At round 32 training accuracy: 0.3594047619047619
+At round 32 validating accuracy: 0.36904761904761907
+At round 33 testing accuracy: 0.36333333333333334
+At round 33 training accuracy: 0.36214285714285716
+At round 33 validating accuracy: 0.37047619047619046
+At round 34 testing accuracy: 0.36523809523809525
+At round 34 training accuracy: 0.3649404761904762
+At round 34 validating accuracy: 0.37238095238095237
+At round 35 testing accuracy: 0.36666666666666664
+At round 35 training accuracy: 0.36714285714285716
+At round 35 validating accuracy: 0.37666666666666665
+At round 36 testing accuracy: 0.37047619047619046
+At round 36 training accuracy: 0.3705357142857143
+At round 36 validating accuracy: 0.37761904761904763
+At round 37 testing accuracy: 0.37238095238095237
+At round 37 training accuracy: 0.3723214285714286
+At round 37 validating accuracy: 0.38047619047619047
+At round 38 testing accuracy: 0.3761904761904762
+At round 38 training accuracy: 0.375
+At round 38 validating accuracy: 0.3823809523809524
+At round 39 testing accuracy: 0.38
+At round 39 training accuracy: 0.37702380952380954
+At round 39 validating accuracy: 0.3861904761904762
+At round 40 testing accuracy: 0.38142857142857145
+At round 40 training accuracy: 0.3788690476190476
+At round 40 validating accuracy: 0.39
+At round 41 testing accuracy: 0.38333333333333336
+At round 41 training accuracy: 0.38107142857142856
+At round 41 validating accuracy: 0.39095238095238094
+At round 42 testing accuracy: 0.3852380952380952
+At round 42 training accuracy: 0.38392857142857145
+At round 42 validating accuracy: 0.3942857142857143
+At round 43 testing accuracy: 0.3871428571428571
+At round 43 training accuracy: 0.38589285714285715
+At round 43 validating accuracy: 0.3952380952380952
+At round 44 testing accuracy: 0.38904761904761903
+At round 44 training accuracy: 0.38726190476190475
+At round 44 validating accuracy: 0.3980952380952381
+At round 45 testing accuracy: 0.39
+At round 45 training accuracy: 0.38952380952380955
+At round 45 validating accuracy: 0.39904761904761904
+At round 46 testing accuracy: 0.3919047619047619
+At round 46 training accuracy: 0.39154761904761903
+At round 46 validating accuracy: 0.4014285714285714
+At round 47 testing accuracy: 0.39285714285714285
+At round 47 training accuracy: 0.3930952380952381
+At round 47 validating accuracy: 0.4033333333333333
+At round 48 testing accuracy: 0.39380952380952383
+At round 48 training accuracy: 0.39553571428571427
+At round 48 validating accuracy: 0.4057142857142857
+At round 49 testing accuracy: 0.39714285714285713
+At round 49 training accuracy: 0.3975595238095238
+At round 49 validating accuracy: 0.4076190476190476
+At round 50 testing accuracy: 0.3980952380952381
+At round 50 training accuracy: 0.3995238095238095
+At round 50 validating accuracy: 0.4114285714285714
+At round 51 testing accuracy: 0.3985714285714286
+At round 51 training accuracy: 0.4013095238095238
+At round 51 validating accuracy: 0.41095238095238096
+At round 52 testing accuracy: 0.3995238095238095
+At round 52 training accuracy: 0.4023809523809524
+At round 52 validating accuracy: 0.4119047619047619
+At round 53 testing accuracy: 0.4014285714285714
+At round 53 training accuracy: 0.4035714285714286
+At round 53 validating accuracy: 0.41285714285714287
+At round 54 testing accuracy: 0.4038095238095238
+At round 54 training accuracy: 0.40577380952380954
+At round 54 validating accuracy: 0.4147619047619048
+At round 55 testing accuracy: 0.40476190476190477
+At round 55 training accuracy: 0.40827380952380954
+At round 55 validating accuracy: 0.41523809523809524
+At round 56 testing accuracy: 0.4061904761904762
+At round 56 training accuracy: 0.4098809523809524
+At round 56 validating accuracy: 0.41619047619047617
+At round 57 testing accuracy: 0.4066666666666667
+At round 57 training accuracy: 0.4119642857142857
+At round 57 validating accuracy: 0.41619047619047617
+At round 58 testing accuracy: 0.4076190476190476
+At round 58 training accuracy: 0.41351190476190475
+At round 58 validating accuracy: 0.4185714285714286
+At round 59 testing accuracy: 0.40904761904761905
+At round 59 training accuracy: 0.41482142857142856
+At round 59 validating accuracy: 0.4195238095238095
+At round 60 testing accuracy: 0.4114285714285714
+At round 60 training accuracy: 0.4175
+At round 60 validating accuracy: 0.4204761904761905
+At round 61 testing accuracy: 0.41285714285714287
+At round 61 training accuracy: 0.41946428571428573
+At round 61 validating accuracy: 0.42238095238095236
+At round 62 testing accuracy: 0.41619047619047617
+At round 62 training accuracy: 0.42178571428571426
+At round 62 validating accuracy: 0.42428571428571427
+At round 63 testing accuracy: 0.4180952380952381
+At round 63 training accuracy: 0.4245238095238095
+At round 63 validating accuracy: 0.4261904761904762
+At round 64 testing accuracy: 0.42
+At round 64 training accuracy: 0.4270833333333333
+At round 64 validating accuracy: 0.4280952380952381
+At round 65 testing accuracy: 0.4228571428571429
+At round 65 training accuracy: 0.42952380952380953
+At round 65 validating accuracy: 0.43
+At round 66 testing accuracy: 0.4247619047619048
+At round 66 training accuracy: 0.4319047619047619
+At round 66 validating accuracy: 0.43238095238095237
+At round 67 testing accuracy: 0.4247619047619048
+At round 67 training accuracy: 0.43351190476190476
+At round 67 validating accuracy: 0.43476190476190474
+At round 68 testing accuracy: 0.4261904761904762
+At round 68 training accuracy: 0.43529761904761904
+At round 68 validating accuracy: 0.43666666666666665
+At round 69 testing accuracy: 0.42714285714285716
+At round 69 training accuracy: 0.4375
+At round 69 validating accuracy: 0.439047619047619
+At round 70 testing accuracy: 0.4261904761904762
+At round 70 training accuracy: 0.4398214285714286
+At round 70 validating accuracy: 0.4423809523809524
+At round 71 testing accuracy: 0.4276190476190476
+At round 71 training accuracy: 0.44107142857142856
+At round 71 validating accuracy: 0.4438095238095238
+At round 72 testing accuracy: 0.43
+At round 72 training accuracy: 0.4435119047619048
+At round 72 validating accuracy: 0.4471428571428571
+At round 73 testing accuracy: 0.4319047619047619
+At round 73 training accuracy: 0.4455357142857143
+At round 73 validating accuracy: 0.44952380952380955
+At round 74 testing accuracy: 0.4319047619047619
+At round 74 training accuracy: 0.4480952380952381
+At round 74 validating accuracy: 0.45095238095238094
+At round 75 testing accuracy: 0.4328571428571429
+At round 75 training accuracy: 0.4504166666666667
+At round 75 validating accuracy: 0.45476190476190476
+At round 76 testing accuracy: 0.43476190476190474
+At round 76 training accuracy: 0.4513690476190476
+At round 76 validating accuracy: 0.45714285714285713
+At round 77 testing accuracy: 0.43666666666666665
+At round 77 training accuracy: 0.45357142857142857
+At round 77 validating accuracy: 0.4604761904761905
+At round 78 testing accuracy: 0.439047619047619
+At round 78 training accuracy: 0.4554761904761905
+At round 78 validating accuracy: 0.4623809523809524
+At round 79 testing accuracy: 0.4419047619047619
+At round 79 training accuracy: 0.4569047619047619
+At round 79 validating accuracy: 0.46476190476190476
+At round 80 testing accuracy: 0.4461904761904762
+At round 80 training accuracy: 0.4595238095238095
+At round 80 validating accuracy: 0.4661904761904762
+At round 81 testing accuracy: 0.44761904761904764
+At round 81 training accuracy: 0.4610119047619048
+At round 81 validating accuracy: 0.4680952380952381
+At round 82 testing accuracy: 0.45
+At round 82 training accuracy: 0.4629761904761905
+At round 82 validating accuracy: 0.4704761904761905
+At round 83 testing accuracy: 0.45285714285714285
+At round 83 training accuracy: 0.4648809523809524
+At round 83 validating accuracy: 0.4714285714285714
+At round 84 testing accuracy: 0.4542857142857143
+At round 84 training accuracy: 0.46660714285714283
+At round 84 validating accuracy: 0.4719047619047619
+At round 85 testing accuracy: 0.4561904761904762
+At round 85 training accuracy: 0.4692857142857143
+At round 85 validating accuracy: 0.47285714285714286
+At round 86 testing accuracy: 0.4585714285714286
+At round 86 training accuracy: 0.4711309523809524
+At round 86 validating accuracy: 0.4747619047619048
+At round 87 testing accuracy: 0.4614285714285714
+At round 87 training accuracy: 0.47309523809523807
+At round 87 validating accuracy: 0.4757142857142857
+At round 88 testing accuracy: 0.4638095238095238
+At round 88 training accuracy: 0.4755357142857143
+At round 88 validating accuracy: 0.4785714285714286
+At round 89 testing accuracy: 0.4666666666666667
+At round 89 training accuracy: 0.47767857142857145
+At round 89 validating accuracy: 0.4795238095238095
+At round 90 testing accuracy: 0.46904761904761905
+At round 90 training accuracy: 0.47946428571428573
+At round 90 validating accuracy: 0.4795238095238095
+At round 91 testing accuracy: 0.47
+At round 91 training accuracy: 0.48154761904761906
+At round 91 validating accuracy: 0.48142857142857143
+At round 92 testing accuracy: 0.47
+At round 92 training accuracy: 0.4831547619047619
+At round 92 validating accuracy: 0.48333333333333334
+At round 93 testing accuracy: 0.4719047619047619
+At round 93 training accuracy: 0.4851785714285714
+At round 93 validating accuracy: 0.4861904761904762
+At round 94 testing accuracy: 0.4719047619047619
+At round 94 training accuracy: 0.48660714285714285
+At round 94 validating accuracy: 0.4876190476190476
+At round 95 testing accuracy: 0.47285714285714286
+At round 95 training accuracy: 0.48791666666666667
+At round 95 validating accuracy: 0.49
+At round 96 testing accuracy: 0.4747619047619048
+At round 96 training accuracy: 0.48970238095238094
+At round 96 validating accuracy: 0.490952380952381
+At round 97 testing accuracy: 0.4766666666666667
+At round 97 training accuracy: 0.49101190476190476
+At round 97 validating accuracy: 0.49333333333333335
+At round 98 testing accuracy: 0.47714285714285715
+At round 98 training accuracy: 0.4920833333333333
+At round 98 validating accuracy: 0.4980952380952381
+At round 99 testing accuracy: 0.4780952380952381
+At round 99 training accuracy: 0.4944642857142857
+At round 99 validating accuracy: 0.4990476190476191
+At round 100 testing accuracy: 0.48
+At round 100 training accuracy: 0.49642857142857144
+At round 100 validating accuracy: 0.5004761904761905
