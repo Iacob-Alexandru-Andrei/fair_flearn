@@ -25,7 +25,6 @@ acc_labels = list(zip(accuracies, label_))
 
 def get_bar_y(filename, num_clients, num_bar=39):
 
-
     num_runs = 1
     num_user = num_clients
     clients = np.zeros((num_runs, num_bar))
@@ -124,6 +123,7 @@ for i, pair in enumerate(acc_labels):
     ax2.set_xlim(0,1)
     plt.tight_layout()
     ax2.set_ylim(0, 8)
+    ax1.set_ylim(0, 8)
 
 
 plt.savefig("fairness_vehicle_non_uniform.pdf")
